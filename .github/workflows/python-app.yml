@@ -1,5 +1,4 @@
 name: Python Code Quality Check
-
 on:
   push:
     branches: ["*"]
@@ -20,20 +19,17 @@ jobs:
           python-version: "3.x"
           cache: "pip"
 
-      - name: Install project + dependencies
+      - name: Install package + dependencies
         run: |
           pip install --upgrade pip
-          pip install .  # installs muthu-pyformatter
+          pip install muthu-pyformatter  # install from PyPI
           pip install pycodestyle autopep8
 
       - name: Run pycodestyle (120 char check)
-        run: |
-          pycodestyle --max-line-length=120 .
+        run: pycodestyle --max-line-length=120 .
 
       - name: Run autopep8 formatter (in-place)
-        run: |
-          autopep8 --max-line-length=120 --in-place --aggressive --recursive .
+        run: autopep8 --max-line-length=120 --in-place --aggressive --recursive .
 
       - name: Re-run pycodestyle after formatting
-        run: |
-          pycodestyle --max-line-length=120 .
+        run: pycodestyle --max-line-length=120 .

@@ -1,0 +1,34 @@
+[project]
+name = "muthu-pyformatter"
+version = "0.0.1"
+description = "Python Code Quality Utility with pycodestyle + autopep8 (120-character rule)"
+authors = [
+    { name = "Muthukumar Subramanian" }
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["pycodestyle", "autopep8", "pep8", "formatter", "lint", "python-tools"]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+
+dependencies = [
+    "pycodestyle>=2.10.0",
+    "autopep8>=2.0.0",
+    "colorama>=0.4.6"
+]
+
+[project.scripts]
+muthu-pyformatter = "muthu_pyformatter.formatter:main"
+
+[build-system]
+requires = ["setuptools>=70.0.0", "wheel", "build"]
+build-backend = "setuptools.build_meta"
